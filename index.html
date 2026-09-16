@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Lopez — Senior Mobile Engineer</title>
+<meta name="description" content="São Paulo-based Senior Mobile Engineer with 9+ years building iOS and Android apps in Swift, Kotlin and React Native — offline-first field operations, biometrics and KYC. Open to relocation with visa sponsorship.">
+<meta name="author" content="David Lopez">
+<meta name="theme-color" content="#fcfafd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140c1b" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Lopez — Senior Mobile Engineer">
+<meta property="og:description" content="9+ years shipping iOS and Android. Mobile team lead. Two apps live in the stores today.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239d00ff'/%3E%3Ctext x='32' y='45' font-family='Helvetica,Arial' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3EDL%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+
+<style>
+/* ---------------------------------------------------------------
+   Ink scale with a violet cast, brand accent, and the Sora /
+   IBM Plex pairing. Hand-written CSS, no framework, no build.
+   --------------------------------------------------------------- */
+
+:root {
+  --ink-50:  #f5f1f7;
+  --ink-100: #eee6f2;
+  --ink-200: #dccfe4;
+  --ink-400: #9989a3;
+  --ink-600: #5f5268;
+  --ink-950: #170e20;
+
+  --brand-100: #f4e5ff;
+  --brand-300: #dda0ff;
+  --brand-500: #9d00ff;
+  --brand-600: #8500d6;
+
+  --page: #fcfafd;
+  --surface: #ffffff;
+  --surface-2: var(--ink-50);
+  --text: var(--ink-950);
+  --text-soft: var(--ink-600);
+  --text-faint: var(--ink-400);
+  --border: var(--ink-200);
+  --border-soft: var(--ink-100);
+  --accent: var(--brand-600);
+  --accent-strong: var(--brand-500);
+  --accent-soft: var(--brand-100);
+  --on-accent: #ffffff;
+  --live: #12694f;
+  --live-soft: #e2efe9;
+
+  --glass: rgba(252, 250, 253, .78);
+  --bezel: linear-gradient(160deg, #3b2c47, #1c1226 60%, #2a1c36);
+  --shadow-sm: 0 1px 2px rgba(23, 14, 32, .05);
+  --shadow-md: 0 2px 6px rgba(23, 14, 32, .05), 0 14px 34px rgba(23, 14, 32, .07);
+  --shadow-lg: 0 30px 60px -12px rgba(23, 14, 32, .28), 0 12px 24px -8px rgba(23, 14, 32, .16);
+  --glow: 0 0 0 1px rgba(157, 0, 255, .16), 0 18px 44px -14px rgba(157, 0, 255, .34);
+
+  --radius: 12px;
+  --radius-lg: 18px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+
+  --display: "Sora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #140c1b;
+    --surface: #1c1226;
+    --surface-2: #241830;
+    --text: #f2ecf6;
+    --text-soft: #b6a8c2;
+    --text-faint: #8a7c96;
+    --border: #3a2946;
+    --border-soft: #2c1f3a;
+    --accent: var(--brand-300);
+    --accent-strong: var(--brand-300);
+    --accent-soft: #2a1140;
+    --on-accent: #1a0a28;
+    --live: #4fbf96;
+    --live-soft: #10281f;
+    --glass: rgba(20, 12, 27, .74);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3);
+    --shadow-md: 0 2px 6px rgba(0, 0, 0, .3), 0 14px 34px rgba(0, 0, 0, .34);
+    --shadow-lg: 0 30px 60px -12px rgba(0, 0, 0, .6), 0 12px 24px -8px rgba(0, 0, 0, .4);
+    --glow: 0 0 0 1px rgba(221, 160, 255, .18), 0 18px 44px -14px rgba(157, 0, 255, .42);
+  }
+}
+
+:root[data-theme="dark"] {
+  --page: #140c1b;
+  --surface: #1c1226;
+  --surface-2: #241830;
+  --text: #f2ecf6;
+  --text-soft: #b6a8c2;
+  --text-faint: #8a7c96;
+  --border: #3a2946;
+  --border-soft: #2c1f3a;
+  --accent: var(--brand-300);
+  --accent-strong: var(--brand-300);
+  --accent-soft: #2a1140;
+  --on-accent: #1a0a28;
+  --live: #4fbf96;
+  --live-soft: #10281f;
+  --glass: rgba(20, 12, 27, .74);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, .3), 0 14px 34px rgba(0, 0, 0, .34);
+  --shadow-lg: 0 30px 60px -12px rgba(0, 0, 0, .6), 0 12px 24px -8px rgba(0, 0, 0, .4);
+  --glow: 0 0 0 1px rgba(221, 160, 255, .18), 0 18px 44px -14px rgba(157, 0, 255, .42);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--accent-soft); color: var(--text); }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; border-radius: 3px; }
+img { max-width: 100%; display: block; }
+.icon { width: 18px; height: 18px; flex: none; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent-strong); color: var(--on-accent);
+  padding: 10px 16px; border-radius: 0 0 8px 0; z-index: 200;
+  font-family: var(--mono); font-size: 13px; text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* ---------- reading progress ---------- */
+
+.progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--brand-500), var(--brand-300));
+  z-index: 120;
+  transition: width .1s linear;
+}
+
+/* ---------- floating header ---------- */
+
+.dock {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 100px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  transition: padding .3s var(--ease), box-shadow .3s var(--ease), top .3s var(--ease);
+  max-width: calc(100vw - 32px);
+}
+.dock.tight { padding: 5px 8px; top: 10px; box-shadow: var(--shadow-lg); }
+
+.dock .mark {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -.02em;
+  color: var(--on-accent);
+  background: var(--accent-strong);
+  text-decoration: none;
+  border-radius: 100px;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  flex: none;
+  transition: transform .3s var(--ease);
+}
+.dock .mark:hover { transform: rotate(-8deg) scale(1.06); }
+
+.dock nav { display: flex; gap: 2px; }
+.dock nav a {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 6px 11px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: color .2s var(--ease), background .2s var(--ease);
+}
+.dock nav a:hover { color: var(--text); background: var(--surface-2); }
+.dock nav a.on { color: var(--accent); background: var(--accent-soft); }
+
+.dock .sep { width: 1px; height: 20px; background: var(--border); margin: 0 4px; flex: none; }
+
+.dock .ico-btn {
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-soft);
+  cursor: pointer;
+  text-decoration: none;
+  flex: none;
+  padding: 0;
+  transition: color .2s var(--ease), background .2s var(--ease);
+}
+.dock .ico-btn:hover { color: var(--accent); background: var(--surface-2); }
+.dock .ico-btn .icon { width: 16px; height: 16px; }
+
+.dock .cta {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  text-decoration: none;
+  color: var(--on-accent);
+  background: var(--accent-strong);
+  border-radius: 100px;
+  padding: 7px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  flex: none;
+  transition: filter .2s var(--ease), transform .2s var(--ease);
+}
+.dock .cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.dock .cta .icon { width: 14px; height: 14px; }
+
+/* Theme button shows the icon for the mode it switches TO. */
+.moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sun { display: none; }
+  :root:not([data-theme="light"]) .moon { display: block; }
+}
+:root[data-theme="dark"] .sun { display: none; }
+:root[data-theme="dark"] .moon { display: block; }
+:root[data-theme="light"] .sun { display: block; }
+:root[data-theme="light"] .moon { display: none; }
+
+/* ---------- hero ---------- */
+
+.hero { position: relative; padding: 152px 0 96px; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -10% -20% 20%;
+  background:
+    radial-gradient(42% 46% at 18% 12%, rgba(157, 0, 255, .13), transparent 70%),
+    radial-gradient(38% 40% at 82% 4%, rgba(221, 160, 255, .16), transparent 70%),
+    radial-gradient(30% 36% at 62% 52%, rgba(157, 0, 255, .07), transparent 72%);
+  filter: blur(6px);
+  z-index: -1;
+  animation: drift 26s var(--ease) infinite alternate;
+}
+@keyframes drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-3%, 2%, 0) scale(1.07); }
+}
+
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(0, .78fr); gap: 56px; align-items: center; }
+
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 6px 15px;
+  margin-bottom: 26px;
+}
+.pulse { position: relative; width: 7px; height: 7px; flex: none; }
+.pulse i, .pulse b { position: absolute; inset: 0; border-radius: 50%; background: var(--accent-strong); }
+.pulse b { animation: ping 2.2s cubic-bezier(0, 0, .2, 1) infinite; opacity: .6; }
+@keyframes ping { 0% { transform: scale(1); opacity: .6; } 75%, 100% { transform: scale(2.6); opacity: 0; } }
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(38px, 6.4vw, 70px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -.037em;
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--brand-500), var(--brand-300) 74%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+:root[data-theme="dark"] .hero h1 em,
+:root:not([data-theme="light"]) .hero h1 em { background: linear-gradient(100deg, var(--brand-300), #f0d0ff 74%); -webkit-background-clip: text; background-clip: text; }
+
+.hero .sub { font-size: clamp(16.5px, 1.9vw, 19.5px); color: var(--text-soft); max-width: 54ch; margin: 0 0 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.btn {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  text-decoration: none;
+  padding: 12px 19px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  transition: border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.btn .icon { width: 15px; height: 15px; }
+.btn:hover { border-color: var(--accent-strong); color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn.solid { background: var(--accent-strong); border-color: var(--accent-strong); color: var(--on-accent); }
+.btn.solid:hover { color: var(--on-accent); box-shadow: var(--glow); filter: brightness(1.08); }
+
+/* ---------- device frame ---------- */
+
+.device {
+  position: relative;
+  width: 100%;
+  max-width: 268px;
+  margin: 0 auto;
+  border-radius: 34px;
+  padding: 9px;
+  background: var(--bezel);
+  box-shadow: var(--shadow-lg);
+  transition: transform .5s var(--ease);
+}
+.device::after {
+  content: "";
+  position: absolute;
+  top: 17px; left: 50%;
+  transform: translateX(-50%);
+  width: 58px; height: 5px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, .18);
+  z-index: 2;
+}
+.device img { border-radius: 26px; width: 100%; height: auto; background: var(--surface-2); }
+.hero .device { transform: rotate(1.6deg); }
+@media (hover: hover) {
+  .hero .device:hover { transform: rotate(0deg) translateY(-6px) scale(1.02); }
+}
+
+.hero-cap { font-family: var(--mono); font-size: 11px; color: var(--text-faint); text-align: center; margin: 16px 0 0; line-height: 1.6; }
+.hero-cap b { color: var(--accent); font-weight: 500; }
+
+/* ---------- section scaffolding ---------- */
+
+section { padding: 84px 0; border-top: 1px solid var(--border-soft); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::after { content: ""; height: 1px; flex: 1 1 auto; background: linear-gradient(90deg, var(--border), transparent); }
+
+.sec-title {
+  font-family: var(--display);
+  font-size: clamp(25px, 3.4vw, 38px);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -.03em;
+  margin: 0 0 16px;
+  max-width: 27ch;
+  text-wrap: balance;
+}
+.sec-lede { color: var(--text-soft); max-width: 64ch; margin: 0 0 44px; font-size: 16.5px; }
+.label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-faint); margin: 0 0 14px; }
+
+/* ---------- reveal ---------- */
+
+html.js .reveal { opacity: 0; transform: translateY(18px); }
+html.js .reveal.in { opacity: 1; transform: none; transition: opacity .7s var(--ease), transform .7s var(--ease); }
+
+/* ---------- 01 profile ---------- */
+
+.profile-grid { display: grid; grid-template-columns: minmax(0, 1fr) 296px; gap: 54px; align-items: start; }
+.principles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 38px; }
+.principles span {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 6px 13px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-soft);
+  background: var(--surface);
+  transition: border-color .2s var(--ease), color .2s var(--ease);
+}
+.principles span:hover { border-color: var(--accent-strong); color: var(--accent); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(146px, 1fr)); gap: 28px 22px; }
+.stat .n {
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.stat p { margin: 9px 0 0; font-size: 13.5px; color: var(--text-soft); line-height: 1.5; }
+
+.portrait { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); padding: 14px; box-shadow: var(--shadow-md); }
+.portrait .frame {
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  background: radial-gradient(120% 90% at 20% 10%, var(--accent-soft), transparent 62%), var(--surface-2);
+  display: grid; place-items: center; overflow: hidden;
+}
+.portrait .frame img { width: 100%; height: 100%; object-fit: cover; }
+.monogram { font-family: var(--display); font-weight: 700; font-size: 64px; letter-spacing: -.05em; color: var(--accent); opacity: .3; }
+.portrait .cap { font-family: var(--mono); font-size: 11px; color: var(--text-faint); margin: 13px 3px 3px; line-height: 1.6; }
+
+/* ---------- 02 capabilities ---------- */
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(80% 70% at 100% 0%, var(--accent-soft), transparent 62%);
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+}
+.card > * { position: relative; }
+.card:hover { border-color: var(--accent-strong); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.card:hover::before { opacity: 1; }
+
+.card .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.card .ico {
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  display: grid; place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+.card .ico .icon { width: 21px; height: 21px; }
+.card .num { font-family: var(--mono); font-size: 11px; color: var(--text-faint); letter-spacing: .12em; }
+.card h3 { font-family: var(--display); font-size: 17px; font-weight: 600; margin: 0 0 9px; letter-spacing: -.016em; }
+.card p { margin: 0; font-size: 14.5px; color: var(--text-soft); }
+
+/* ---------- 03 technology ---------- */
+
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.tech-cell { background: var(--surface); padding: 24px; transition: background .25s var(--ease); }
+.tech-cell:hover { background: var(--surface-2); }
+.tech-cell h4 {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-faint); margin: 0 0 16px; font-weight: 400;
+  display: flex; align-items: center; gap: 10px;
+}
+.tech-cell h4 .icon { width: 15px; height: 15px; color: var(--accent); }
+.tech-cell h4 b { margin-left: auto; color: var(--accent); font-weight: 500; }
+.tech-cell ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; }
+.tech-cell li { font-size: 13.5px; color: var(--text-soft); background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: 7px; padding: 4px 10px; }
+.tech-cell:hover li { background: var(--surface); }
+
+/* ---------- 04 experience ---------- */
+
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ""; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(180deg, var(--accent-strong), var(--border) 22%, var(--border)); }
+.entry { position: relative; padding-bottom: 36px; }
+.entry:last-child { padding-bottom: 0; }
+.entry::before {
+  content: ""; position: absolute; left: -30px; top: 8px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--page); border: 2px solid var(--border);
+  transition: border-color .2s var(--ease), transform .2s var(--ease);
+}
+.entry:hover::before { border-color: var(--accent-strong); transform: scale(1.25); }
+.entry.now::before { border-color: var(--accent-strong); background: var(--accent-strong); box-shadow: 0 0 0 4px var(--accent-soft); }
+.entry .when { font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); margin-bottom: 5px; }
+.entry h3 { font-family: var(--display); font-size: 18px; font-weight: 600; margin: 0 0 2px; letter-spacing: -.018em; }
+.entry .co { font-size: 14px; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
+.entry ul { margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 14.5px; }
+.entry li { margin-bottom: 4px; }
+
+/* ---------- 05 projects ---------- */
+
+.projects { display: grid; gap: 20px; }
+.project {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.project:hover { border-color: var(--accent-strong); box-shadow: var(--shadow-md); }
+.p-body { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 26px; align-items: start; }
+.p-head { display: flex; align-items: center; gap: 13px; margin-bottom: 4px; flex-wrap: wrap; }
+.p-icon { width: 44px; height: 44px; border-radius: 11px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.p-head h3 { font-family: var(--display); font-size: 21px; font-weight: 600; margin: 0; letter-spacing: -.022em; }
+.project .role { font-family: var(--mono); font-size: 11px; letter-spacing: .11em; text-transform: uppercase; color: var(--text-faint); margin: 0 0 14px; }
+.project p { margin: 0 0 13px; font-size: 14.5px; color: var(--text-soft); max-width: 68ch; }
+.project p b { color: var(--text); font-weight: 600; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--mono); font-size: 11px; padding: 4px 10px; border-radius: 6px; background: var(--surface-2); color: var(--text-soft); border: 1px solid var(--border-soft); }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 11px; border-radius: 100px;
+  background: var(--live-soft); color: var(--live);
+}
+.badge .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.badge.off { background: var(--surface-2); color: var(--text-faint); }
+.badge.brand { background: var(--accent-soft); color: var(--accent); }
+
+.links { display: flex; flex-direction: column; gap: 8px; min-width: 168px; }
+.slink {
+  font-family: var(--mono); font-size: 11.5px;
+  text-decoration: none; color: var(--text);
+  border: 1px solid var(--border); border-radius: 9px;
+  padding: 10px 13px;
+  display: flex; align-items: center; gap: 10px;
+  transition: border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+}
+.slink .icon { width: 15px; height: 15px; }
+.slink .grow { flex: 1 1 auto; }
+.slink .tag { color: var(--text-faint); font-size: 10.5px; }
+.slink:hover { border-color: var(--accent-strong); color: var(--accent); transform: translateX(2px); }
+.slink:hover .tag { color: var(--accent); }
+.slink.dead { color: var(--text-faint); border-style: dashed; pointer-events: none; }
+
+.shots {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 4px 4px 12px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+.shots .device { max-width: 176px; flex: none; scroll-snap-align: start; border-radius: 26px; padding: 7px; margin: 0; }
+.shots .device::after { top: 13px; width: 42px; height: 4px; }
+.shots .device img { border-radius: 20px; }
+@media (hover: hover) {
+  .shots .device:hover { transform: translateY(-6px); }
+}
+
+/* ---------- 06 code ---------- */
+
+.repos { display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); gap: 14px; }
+.repo {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; text-decoration: none; display: block;
+  transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.repo:hover { border-color: var(--accent-strong); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.repo .rn { font-family: var(--mono); font-size: 14px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.repo .rn .icon { width: 14px; height: 14px; }
+.repo .rn .out { width: 12px; height: 12px; margin-left: auto; }
+.repo p { margin: 0 0 13px; font-size: 13.5px; color: var(--text-soft); }
+.repo .meta { font-family: var(--mono); font-size: 11px; color: var(--text-faint); display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ---------- 07 education ---------- */
+
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 46px; }
+.two-col h4 { font-family: var(--display); font-size: 16px; font-weight: 600; margin: 0 0 16px; display: flex; align-items: center; gap: 9px; }
+.two-col h4 .icon { color: var(--accent); }
+.deg { padding: 16px 0; border-top: 1px solid var(--border-soft); }
+.deg:first-of-type { border-top: 0; padding-top: 0; }
+.deg strong { display: block; font-size: 15px; font-weight: 600; }
+.deg span { font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); }
+.deg p { margin: 6px 0 0; font-size: 14px; color: var(--text-soft); }
+.lang { display: flex; align-items: baseline; gap: 14px; padding: 13px 0; border-top: 1px solid var(--border-soft); }
+.lang:first-of-type { border-top: 0; padding-top: 0; }
+.lang b { font-size: 15px; font-weight: 600; min-width: 98px; }
+.lang span { font-family: var(--mono); font-size: 12px; color: var(--text-soft); }
+
+/* ---------- 08 contact ---------- */
+
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(212px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.contact-cell { background: var(--surface); padding: 24px; transition: background .22s var(--ease); }
+.contact-cell:hover { background: var(--surface-2); }
+.contact-cell .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 11px; display: flex; align-items: center; gap: 8px; }
+.contact-cell .k .icon { width: 14px; height: 14px; color: var(--accent); }
+.contact-cell a, .contact-cell p { font-size: 14.5px; margin: 0; color: var(--text); text-decoration: none; word-break: break-word; }
+.contact-cell a:hover { color: var(--accent); }
+
+footer { border-top: 1px solid var(--border-soft); padding: 30px 0 48px; font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+footer .sp { flex: 1 1 auto; }
+footer a { color: var(--text-soft); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1060px) {
+  .dock nav a { padding: 6px 8px; font-size: 11px; }
+}
+@media (max-width: 900px) {
+  .hero { padding: 116px 0 64px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero .device { max-width: 226px; }
+  section { padding: 60px 0; }
+  .profile-grid { grid-template-columns: 1fr; gap: 38px; }
+  .portrait { max-width: 320px; }
+  .p-body { grid-template-columns: 1fr; }
+  .links { flex-direction: row; flex-wrap: wrap; }
+  .slink { flex: 1 1 150px; }
+  .dock nav { display: none; }
+  .dock { gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; scroll-behavior: auto !important; }
+  html.js .reveal { opacity: 1; transform: none; }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#profile">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- Icon set: hand-drawn 24px symbols, referenced with <use>. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-ship" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l7 4v6c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7l7-4z"/><path d="M9 12l2 2 4-4"/>
+  </symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 5.5h3"/><path d="M11 18.5h2"/>
+  </symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 3l18 18"/><path d="M5 12.5a10 10 0 0 1 4-2.4"/><path d="M8.5 16a5.5 5.5 0 0 1 2.5-1.4"/><path d="M12 19.5h.01"/><path d="M19 12.5a10 10 0 0 0-5.5-2.9"/>
+  </symbol>
+  <symbol id="i-finger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4a6 6 0 0 0-6 6v5"/><path d="M12 7.5A2.5 2.5 0 0 0 9.5 10v6.5"/><path d="M12 11v5.5"/><path d="M18 10a6 6 0 0 0-2.4-4.8"/><path d="M14.5 10v6.5"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 5.6a3.2 3.2 0 0 1 0 4.8"/><path d="M17.5 14.4A5.5 5.5 0 0 1 20.5 19"/>
+  </symbol>
+  <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 7l-5 5 5 5"/><path d="M15 7l5 5-5 5"/>
+  </symbol>
+  <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 2.5 15 0 18-2.5-3-2.5-15.5 0-18z"/>
+  </symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7" y="7" width="10" height="10" rx="2"/><path d="M4 10v4M20 10v4M10 4h4M10 20h4"/>
+  </symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 15c-1 2.5-1 4 0 4s2.5 0 4-1"/><path d="M14.5 4.5c3-1.5 5-1 5-1s.5 2-1 5c-1.6 3.2-5 6-8 7.5L7 12C8.5 9 11.3 6.1 14.5 4.5z"/><circle cx="14.6" cy="9.4" r="1.3"/>
+  </symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.1-2.8.8-3.5.8s-1.9-.8-3.1-.8c-1.6 0-3.3 1.3-4.2 3.3-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.2-.8s1.9.8 3.1.8 2.1-1.1 2.9-2.3c.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14.2 5.9c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M3.9 2.3a1.5 1.5 0 0 0-.5 1.1v17.2c0 .5.2.9.5 1.1l9.1-9.7L3.9 2.3z"/><path d="M17.3 8.4l-3.3-1.9-8.9-5c-.2-.1-.4-.2-.6-.2l9.1 9.7 3.7-2.6z"/><path d="M17.3 15.6l-3.7-2.6-9.1 9.7c.2 0 .4-.1.6-.2l12.2-6.9z"/><path d="M20.9 10.7l-2.4-1.4-4 2.7 4 2.7 2.4-1.4c.7-.4.7-2.2 0-2.6z"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9.5 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21h-4z"/>
+  </symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/>
+  </symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 5.5c0-1 .8-1.8 1.8-1.8h1.7c.8 0 1.5.6 1.7 1.4l.6 2.7c.1.7-.2 1.4-.8 1.7l-1.2.7a11 11 0 0 0 5.1 5.1l.7-1.2c.4-.6 1-.9 1.7-.8l2.7.6c.8.2 1.4.9 1.4 1.7v1.7c0 1-.8 1.8-1.8 1.8h-.7A15.5 15.5 0 0 1 4 6.2z"/>
+  </symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>
+  </symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>
+  </symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.5 8.5L12 4.5l9.5 4-9.5 4-9.5-4z"/><path d="M6.5 10.6V16c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-5.4"/>
+  </symbol>
+  <symbol id="i-lang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 6h9"/><path d="M8.5 6c0 4-2 7-4.5 8.5"/><path d="M6 10c1.2 2.6 3.2 4 5.5 4.5"/><path d="M13.5 20l3.5-9 3.5 9"/><path d="M15 17h4"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/>
+  </symbol>
+</svg>
+
+<header class="dock" id="dock">
+  <a class="mark" href="#top" aria-label="Back to top">DL</a>
+  <nav aria-label="Sections">
+    <a href="#profile">Profile</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#technology">Stack</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <span class="sep"></span>
+  <a class="ico-btn" href="https://github.com/killua15" aria-label="GitHub"><svg class="icon"><use href="#i-github"></use></svg></a>
+  <a class="ico-btn" href="https://www.linkedin.com/in/david-lopez-33437193" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"></use></svg></a>
+  <button class="ico-btn" id="theme" type="button" aria-label="Switch colour theme">
+    <svg class="icon sun"><use href="#i-moon"></use></svg>
+    <svg class="icon moon"><use href="#i-sun"></use></svg>
+  </button>
+  <a class="cta" href="cv.pdf"><svg class="icon"><use href="#i-doc"></use></svg>CV</a>
+</header>
+
+<div class="wrap" id="top">
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="avail"><span class="pulse"><b></b><i></i></span>Open to relocation &amp; visa sponsorship</span>
+        <h1>Senior Mobile Engineer building apps that <em>survive the real world</em>.</h1>
+        <p class="sub">Nine years shipping iOS and Android — native and cross-platform — for teams in the United States, Spain, Uruguay and Brazil. Two of my apps are live in the stores today.</p>
+        <div class="hero-actions">
+          <a class="btn solid" href="mailto:dlopezsalinas152@gmail.com"><svg class="icon"><use href="#i-mail"></use></svg>Get in touch</a>
+          <a class="btn" href="#projects"><svg class="icon"><use href="#i-phone"></use></svg>See the apps</a>
+          <a class="btn" href="cv.pdf"><svg class="icon"><use href="#i-doc"></use></svg>CV (PDF)</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="device">
+          <img src="assets/wt_shot1.jpg" alt="Wintaylor WFO running on a phone" width="800" height="1422">
+        </div>
+        <p class="hero-cap"><b>Wintaylor WFO</b> · v1.0.83, updated 26 Aug 2026<br>I led the mobile team behind it</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="profile" class="reveal">
+    <p class="eyebrow">01 · Profile</p>
+    <h2 class="sec-title">I build the mobile features that fail loudly if you get them wrong.</h2>
+    <p class="sec-lede">Clock-in that has to work in a basement with no signal. Biometric identity that cannot let the wrong person through. Offline data that must survive a dead battery and reconcile cleanly. That is the work I have spent nine years doing, and the work I lead teams through.</p>
+
+    <div class="profile-grid">
+      <div>
+        <p class="label">Working principles</p>
+        <div class="principles">
+          <span>Offline-first</span>
+          <span>Clean Architecture</span>
+          <span>MVVM</span>
+          <span>Ship small, ship often</span>
+          <span>Code review as teaching</span>
+          <span>Unit testing</span>
+          <span>CI/CD</span>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="n" data-count="9" data-suffix="+">9+</div><p>years shipping iOS and Android apps</p></div>
+          <div class="stat"><div class="n" data-count="2">2</div><p>apps live in the App Store and Google Play right now</p></div>
+          <div class="stat"><div class="n" data-count="4">4</div><p>countries worked for, all remote: US, Spain, Uruguay, Brazil</p></div>
+          <div class="stat"><div class="n" data-count="3">3</div><p>developers led as Mobile Team Lead, with release ownership</p></div>
+        </div>
+      </div>
+
+      <aside class="portrait">
+        <div class="frame">
+          <!-- Drop a portrait at site/assets/portrait.jpg and replace the
+               monogram with: <img src="assets/portrait.jpg" alt="David Lopez"> -->
+          <span class="monogram">DL</span>
+        </div>
+        <p class="cap">David Lopez<br>São Bernardo do Campo · Greater São Paulo, Brazil</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="capabilities" class="reveal">
+    <p class="eyebrow">02 · Capabilities</p>
+    <h2 class="sec-title">From the first screen to the store listing, and after.</h2>
+    <p class="sec-lede">I have owned mobile products end to end: architecture, implementation, review, release and the maintenance nobody puts on a roadmap. Six areas where I do the work rather than delegate it.</p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="top"><span class="ico"><svg class="icon"><use href="#i-ship"></use></svg></span><span class="num">01</span></div>
+        <h3>End-to-end mobile delivery</h3>
+        <p>Full cycle on iOS and Android: features, bug fixing, store submission and updates. I have owned App Store and Google Play releases at five companies.</p>
+      </article>
+      <article class="card">
+        <div class="top"><span class="ico"><svg class="icon"><use href="#i-layers"></use></svg></span><span class="num">02</span></div>
+        <h3>Cross-platform with React Native</h3>
+        <p>React Native and Expo on shared codebases that stay maintainable, with over-the-air releases through EAS so fixes reach users the same day.</p>
+      </article>
+      <article class="card">
+        <div class="top"><span class="ico"><svg class="icon"><use href="#i-phone"></use></svg></span><span class="num">03</span></div>
+        <h3>Native iOS and Android</h3>
+        <p>Swift and Objective-C, Kotlin and Java. Nine years of native work before and alongside cross-platform, including an MVC to MVVM migration.</p>
+      </article>
+      <article class="card">
+        <div class="top"><span class="ico"><svg class="icon"><use href="#i-offline"></use></svg></span><span class="num">04</span></div>
+        <h3>Offline-first reliability</h3>
+        <p>Apps for field teams that lose connectivity by default: local persistence, sync reconciliation, and interfaces that never pretend to be online.</p>
+      </article>
+      <article class="card">
+        <div class="top"><span class="ico"><svg class="icon"><use href="#i-finger"></use></svg></span><span class="num">05</span></div>
+        <h3>Identity and compliance</h3>
+        <p>Biometric and geolocated clock-in, KYC identity verification, digital signature and push notifications — the features audits get run against.</p>
+      </article>
+      <article class="card">
+        <div class="top"><span class="ico"><svg class="icon"><use href="#i-users"></use></svg></span><span class="num">06</span></div>
+        <h3>Technical leadership</h3>
+        <p>Led a team of three: work planning and allocation, code review, architecture decisions and ownership of the release cycle.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="technology" class="reveal">
+    <p class="eyebrow">03 · Technology</p>
+    <h2 class="sec-title">A stack organised by the problem it solves.</h2>
+    <p class="sec-lede">Everything here has shipped in a product with real users — not a tutorial list.</p>
+
+    <div class="tech-grid">
+      <div class="tech-cell">
+        <h4><svg class="icon"><use href="#i-code"></use></svg>Languages <b>7</b></h4>
+        <ul><li>Swift</li><li>Objective-C</li><li>Kotlin</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>C#</li></ul>
+      </div>
+      <div class="tech-cell">
+        <h4><svg class="icon"><use href="#i-phone"></use></svg>Mobile <b>6</b></h4>
+        <ul><li>React Native</li><li>Expo</li><li>EAS</li><li>Flutter / Dart</li><li>UIKit</li><li>Android SDK</li></ul>
+      </div>
+      <div class="tech-cell">
+        <h4><svg class="icon"><use href="#i-server"></use></svg>Backend &amp; APIs <b>8</b></h4>
+        <ul><li>.NET 9</li><li>Node.js</li><li>NestJS</li><li>REST</li><li>WebSocket</li><li>SQL Server</li><li>MongoDB</li><li>Supabase</li></ul>
+      </div>
+      <div class="tech-cell">
+        <h4><svg class="icon"><use href="#i-globe"></use></svg>Web <b>5</b></h4>
+        <ul><li>React</li><li>Next.js</li><li>Electron</li><li>Tailwind CSS</li><li>i18n</li></ul>
+      </div>
+      <div class="tech-cell">
+        <h4><svg class="icon"><use href="#i-cpu"></use></svg>Device &amp; platform <b>6</b></h4>
+        <ul><li>Geolocation</li><li>Biometrics</li><li>Offline sync</li><li>Push notifications</li><li>KYC</li><li>Digital signature</li></ul>
+      </div>
+      <div class="tech-cell">
+        <h4><svg class="icon"><use href="#i-rocket"></use></svg>Delivery <b>7</b></h4>
+        <ul><li>App Store Connect</li><li>Google Play Console</li><li>OTA releases</li><li>Git</li><li>CI/CD</li><li>Unit testing</li><li>Claude Code</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <p class="eyebrow">04 · Experience</p>
+    <h2 class="sec-title">Nine years of mobile, thirteen in technology, almost all remote.</h2>
+    <p class="sec-lede">A career built with distributed teams across four countries, from network administration in Cuba to leading a mobile team in Brazil.</p>
+
+    <div class="timeline">
+      <article class="entry now">
+        <div class="when">Oct 2023 — Jul 2026 · Brazil · Remote</div>
+        <h3>Fullstack &amp; Mobile Developer</h3>
+        <div class="co">Freelance / Contractor</div>
+        <ul>
+          <li>Mobile Team Lead on Wintaylor WFO: led three developers, owned the release cycle</li>
+          <li>Evolved the field app in React Native (Expo) with substantial performance and stability gains</li>
+          <li>Built geolocated and biometric clock-in, shift calendar, digital signature, KYC, offline mode and push notifications</li>
+          <li>C#/.NET backend development for long-term client engagements in Brazil</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="when">Jun 2022 — Oct 2023 · São Paulo, Brazil</div>
+        <h3>Software Engineer</h3>
+        <div class="co">AVA Tecnologia</div>
+        <ul>
+          <li>Developed and maintained the Hey AVA apps for iOS and Android across the full cycle: features, bug fixing and store releases</li>
+          <li>On the team through the product's App Store launch in May 2023</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="when">Mar 2021 — Jun 2023 · Uruguay · Remote</div>
+        <h3>React Native Developer</h3>
+        <div class="co">TuAppto</div>
+        <ul>
+          <li>Built the cross-platform app for iOS and Android on one shared codebase</li>
+          <li>Shipped features on the same codebase for more than two years</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="when">Dec 2021 — Jun 2022 · Spain · Remote</div>
+        <h3>Mobile Application Developer</h3>
+        <div class="co">Inycom</div>
+        <ul><li>iOS and Android apps within a distributed team: new features and maintenance of ongoing client projects</li></ul>
+      </article>
+
+      <article class="entry">
+        <div class="when">Jan 2021 — Dec 2021 · United States · Remote</div>
+        <h3>iOS Developer</h3>
+        <div class="co">KwikVet — Pet Care On-Demand</div>
+        <ul>
+          <li>New features and interfaces for the on-demand veterinary care app</li>
+          <li>Custom pods to improve application performance; owned App Store releases</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="when">Jan 2020 — Nov 2020 · Miami, US · Remote</div>
+        <h3>iOS Developer</h3>
+        <div class="co">CubaCitas</div>
+        <ul>
+          <li>Interfaces and features in Swift, published to the App Store</li>
+          <li>Migrated the architecture from MVC to MVVM, improving testability and maintainability</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="when">Jan 2017 — Jun 2019 · United States · Remote</div>
+        <h3>Android &amp; iOS Developer</h3>
+        <div class="co">Rezglo</div>
+        <ul>
+          <li>Two and a half years of native Android and iOS development</li>
+          <li>Owned releases and updates on both the App Store and Google Play</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="when">Sep 2013 — Aug 2018 · Cuba</div>
+        <h3>Network Administrator</h3>
+        <div class="co">Prensa Latina</div>
+        <ul><li>Network administration and infrastructure support for a national news agency</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <p class="eyebrow">05 · Projects</p>
+    <h2 class="sec-title">Products you can download and open right now.</h2>
+    <p class="sec-lede">Every product below is one I shipped for an employer or client, ordered by what you can still install today. Store links and versions checked on 8 September 2026; where an app has been withdrawn, it says so — a broken link is worse than an honest one.</p>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="p-body">
+          <div>
+            <div class="p-head">
+              <img class="p-icon" src="assets/wt_icon.jpg" alt="" width="44" height="44">
+              <h3>Wintaylor WFO</h3>
+              <span class="badge"><span class="dot"></span>Live · v1.0.83</span>
+            </div>
+            <p class="role">Mobile Team Lead · 2023–2026</p>
+            <p>Workforce management for companies running field operations: shift planning, timekeeping and task tracking for teams that spend their day away from a desk, plus a document repository and a profit-sharing evaluation module.</p>
+            <p><b>My part:</b> led the mobile team of three — planning and allocation, code review, architecture, release ownership. Built geolocated and biometric clock-in, shift calendar, digital signature, KYC identity verification, offline mode and push notifications, with a pt-BR localized interface. Last store update: 26 August 2026.</p>
+            <div class="chips"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">EAS OTA</span><span class="chip">TypeScript</span><span class="chip">C# / .NET</span><span class="chip">SQL Server</span></div>
+          </div>
+          <div class="links">
+            <a class="slink" href="https://apps.apple.com/br/app/wintaylor-wfo/id6499036766"><svg class="icon"><use href="#i-apple"></use></svg><span class="grow">App Store</span><span class="tag">iOS</span></a>
+            <a class="slink" href="https://play.google.com/store/apps/details?id=com.wfoapp"><svg class="icon"><use href="#i-play"></use></svg><span class="grow">Google Play</span><span class="tag">Android</span></a>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="device"><img src="assets/wt_shot1.jpg" alt="Wintaylor WFO screen" width="800" height="1422" loading="lazy"></div>
+          <div class="device"><img src="assets/wt_shot2.jpg" alt="Wintaylor WFO screen" width="800" height="1422" loading="lazy"></div>
+          <div class="device"><img src="assets/wt_shot3.jpg" alt="Wintaylor WFO screen" width="800" height="1422" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-body">
+          <div>
+            <div class="p-head">
+              <img class="p-icon" src="assets/ta_icon.jpg" alt="" width="44" height="44">
+              <h3>TuAppto</h3>
+              <span class="badge"><span class="dot"></span>Live · v2.0.2</span>
+            </div>
+            <p class="role">React Native Developer · 2021–2023</p>
+            <p>Property management for residents and building administrators: account statements, online payment of common expenses, booking of shared spaces, announcements, assemblies and votes.</p>
+            <p><b>My part:</b> built the cross-platform application for iOS and Android and shipped new features on one shared codebase for more than two years, working remotely with the team in Uruguay. Last store update: 1 June 2026.</p>
+            <div class="chips"><span class="chip">React Native</span><span class="chip">JavaScript</span><span class="chip">REST APIs</span></div>
+          </div>
+          <div class="links">
+            <a class="slink" href="https://apps.apple.com/us/app/tuappto/id1592735150"><svg class="icon"><use href="#i-apple"></use></svg><span class="grow">App Store</span><span class="tag">iOS</span></a>
+            <a class="slink" href="https://play.google.com/store/apps/details?id=com.tuappto.release.prod"><svg class="icon"><use href="#i-play"></use></svg><span class="grow">Google Play</span><span class="tag">Android</span></a>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="device"><img src="assets/ta_shot1.jpg" alt="TuAppto screen" width="800" height="1422" loading="lazy"></div>
+          <div class="device"><img src="assets/ta_shot2.jpg" alt="TuAppto screen" width="800" height="1422" loading="lazy"></div>
+          <div class="device"><img src="assets/ta_shot3.jpg" alt="TuAppto screen" width="800" height="1422" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-body">
+          <div>
+            <div class="p-head">
+              <img class="p-icon" src="assets/av_icon.jpg" alt="" width="44" height="44">
+              <h3>Hey AVA</h3>
+              <span class="badge"><span class="dot"></span>Live · v1.2.2</span>
+            </div>
+            <p class="role">Software Engineer · AVA Tecnologia · 2022–2023</p>
+            <p>A digital space for keeping a personal history: users record and revisit their own memories through video, photo, text and voice, with guided prompts and interactive playback.</p>
+            <p><b>My part:</b> developed and maintained the iOS and Android apps across the full cycle — new features, bug fixing and store releases — through the period in which the product launched on the App Store in May 2023.</p>
+            <div class="chips"><span class="chip">Swift</span><span class="chip">Kotlin</span><span class="chip">React Native</span><span class="chip">Media capture</span></div>
+          </div>
+          <div class="links">
+            <a class="slink" href="https://apps.apple.com/br/app/hey-ava/id1636733814"><svg class="icon"><use href="#i-apple"></use></svg><span class="grow">App Store</span><span class="tag">iOS</span></a>
+            <a class="slink" href="https://heyava.com.br"><svg class="icon"><use href="#i-globe"></use></svg><span class="grow">heyava.com.br</span><span class="tag">web</span></a>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="device"><img src="assets/av_shot1.jpg" alt="Hey AVA screen" width="800" height="1422" loading="lazy"></div>
+          <div class="device"><img src="assets/av_shot2.jpg" alt="Hey AVA screen" width="800" height="1422" loading="lazy"></div>
+          <div class="device"><img src="assets/av_shot3.jpg" alt="Hey AVA screen" width="800" height="1422" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-body">
+          <div>
+            <div class="p-head">
+              <img class="p-icon" src="assets/rz_icon.jpg" alt="" width="44" height="44">
+              <h3>Rezglo Passenger</h3>
+              <span class="badge"><span class="dot"></span>Live on Google Play</span>
+            </div>
+            <p class="role">Android &amp; iOS Developer · 2017–2019</p>
+            <p>Ground transportation booking for travellers: one app to compare and book rides from hotels, airports and cruise ports across regulated transport companies and taxi drivers, plus private events and sightseeing trips.</p>
+            <p><b>My part:</b> two and a half years of native Android and iOS development, owning releases and updates on both the App Store and Google Play. The Android app is still published; the iOS build has since been withdrawn from the store.</p>
+            <div class="chips"><span class="chip">Swift</span><span class="chip">Objective-C</span><span class="chip">Java</span><span class="chip">Kotlin</span><span class="chip">Geolocation</span></div>
+          </div>
+          <div class="links">
+            <a class="slink" href="https://play.google.com/store/apps/details?id=app.Rezglo.passenger"><svg class="icon"><use href="#i-play"></use></svg><span class="grow">Google Play</span><span class="tag">Android</span></a>
+            <a class="slink" href="https://apps.apple.com/us/developer/rezglo/id1413771112"><svg class="icon"><use href="#i-apple"></use></svg><span class="grow">Developer</span><span class="tag">App Store</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-body">
+          <div>
+            <div class="p-head">
+              <h3>CubaCitas</h3>
+              <span class="badge off"><span class="dot"></span>Discontinued</span>
+            </div>
+            <p class="role">iOS Developer · 2020</p>
+            <p>Dating and social app built by and for Cubans on and off the island, connecting users by location and interest. It passed 37,000 registered users in its first three months.</p>
+            <p><b>My part:</b> developed the interfaces and features in Swift and published the app to the App Store, then migrated the architecture from MVC to MVVM, improving testability and maintainability. The product was discontinued and is no longer distributed.</p>
+            <div class="chips"><span class="chip">Swift</span><span class="chip">MVVM</span><span class="chip">Geolocation</span></div>
+          </div>
+          <div class="links">
+            <span class="slink dead"><svg class="icon"><use href="#i-apple"></use></svg><span class="grow">App Store</span><span class="tag">withdrawn</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-body">
+          <div>
+            <div class="p-head">
+              <h3>KwikVet</h3>
+              <span class="badge off"><span class="dot"></span>Delisted</span>
+            </div>
+            <p class="role">iOS Developer · 2021</p>
+            <p>On-demand veterinary care: pet owners request a house call and the app matches them with the nearest available vet-technician team. Two apps — one for pet owners, one for veterinary professionals.</p>
+            <p><b>My part:</b> new features and interfaces in Swift, custom pods to improve performance, and ownership of App Store releases and updates. Both apps have since been removed from the App Store; the company still runs the service on the web.</p>
+            <div class="chips"><span class="chip">Swift</span><span class="chip">CocoaPods</span><span class="chip">Geolocation</span></div>
+          </div>
+          <div class="links">
+            <a class="slink" href="https://www.kwikvet.com/"><svg class="icon"><use href="#i-globe"></use></svg><span class="grow">kwikvet.com</span><span class="tag">web</span></a>
+            <span class="slink dead"><svg class="icon"><use href="#i-apple"></use></svg><span class="grow">App Store</span><span class="tag">delisted</span></span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <p class="eyebrow">06 · Education &amp; Languages</p>
+    <h2 class="sec-title">Engineering foundations, and the languages I work in.</h2>
+
+    <div class="two-col">
+      <div>
+        <h4><svg class="icon"><use href="#i-cap"></use></svg>Education</h4>
+        <div class="deg">
+          <strong>Ingeniería — Web Application Development</strong>
+          <span>Universidad de las Ciencias Informáticas (UCI), Cuba · 2007–2013</span>
+          <p>Five-year engineering degree in web application development.</p>
+        </div>
+        <div class="deg">
+          <strong>Licenciatura — Web Application Development</strong>
+          <span>Universidad de las Ciencias Informáticas (UCI), Cuba · 2008–2013</span>
+        </div>
+        <div class="deg">
+          <strong>iOS Mobile Developer · Flutter</strong>
+          <span>Platzi · certifications</span>
+        </div>
+      </div>
+      <div>
+        <h4><svg class="icon"><use href="#i-lang"></use></svg>Languages</h4>
+        <div class="lang"><b>Spanish</b><span>Native</span></div>
+        <div class="lang"><b>Portuguese</b><span>Intermediate — working language in Brazil</span></div>
+        <div class="lang"><b>English</b><span>Intermediate — improving toward interview level</span></div>
+
+        <h4 style="margin-top:34px"><svg class="icon"><use href="#i-pin"></use></svg>Availability</h4>
+        <p style="font-size:14.5px;color:var(--text-soft);margin:0">Open to relocation with visa sponsorship and to fully remote roles worldwide. Based in Greater São Paulo; available immediately.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <p class="eyebrow">07 · Contact</p>
+    <h2 class="sec-title">Let's talk about the app you need shipped.</h2>
+    <p class="sec-lede">Available to discuss senior mobile roles, team leadership and contract work — remote, or with relocation.</p>
+
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <div class="k"><svg class="icon"><use href="#i-mail"></use></svg>Email</div>
+        <a href="mailto:dlopezsalinas152@gmail.com">dlopezsalinas152@gmail.com</a>
+      </div>
+      <div class="contact-cell">
+        <div class="k"><svg class="icon"><use href="#i-tel"></use></svg>Phone</div>
+        <a href="tel:+5511978041284">+55 11 97804-1284</a>
+      </div>
+      <div class="contact-cell">
+        <div class="k"><svg class="icon"><use href="#i-linkedin"></use></svg>LinkedIn</div>
+        <a href="https://www.linkedin.com/in/david-lopez-33437193">david-lopez</a>
+      </div>
+      <div class="contact-cell">
+        <div class="k"><svg class="icon"><use href="#i-github"></use></svg>GitHub</div>
+        <a href="https://github.com/killua15">killua15</a>
+      </div>
+      <div class="contact-cell">
+        <div class="k"><svg class="icon"><use href="#i-pin"></use></svg>Location</div>
+        <p>São Bernardo do Campo<br>São Paulo, Brazil</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 David Lopez</span>
+    <span class="sp"></span>
+    <a href="mailto:dlopezsalinas152@gmail.com">Email</a>
+    <a href="https://github.com/killua15">GitHub</a>
+    <a href="https://www.linkedin.com/in/david-lopez-33437193">LinkedIn</a>
+    <span>Hand-written HTML &amp; CSS</span>
+  </footer>
+
+</div>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Theme toggle — remembered per browser, best effort. */
+  var KEY = 'dl-theme';
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'dark' || saved === 'light') document.documentElement.dataset.theme = saved;
+  } catch (e) { /* private mode */ }
+
+  document.getElementById('theme').addEventListener('click', function () {
+    var current = document.documentElement.dataset.theme;
+    var isDark = current ? current === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var next = isDark ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem(KEY, next); } catch (e) { /* ignore */ }
+  });
+
+  /* Reading progress and dock compaction, on one rAF-throttled handler. */
+  var bar = document.getElementById('progress');
+  var dock = document.getElementById('dock');
+  var ticking = false;
+
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY;
+    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    dock.classList.toggle('tight', y > 120);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  /* Reveal sections as they enter the viewport. */
+  var sections = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduced) {
+    var revealer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); revealer.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: .05 });
+    sections.forEach(function (s) { revealer.observe(s); });
+  } else {
+    sections.forEach(function (s) { s.classList.add('in'); });
+  }
+
+  /* Count the stats up once, the first time they come into view. */
+  var nums = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window && !reduced) {
+    var counter = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        counter.unobserve(e.target);
+        var el = e.target;
+        var to = parseInt(el.dataset.count, 10);
+        var suffix = el.dataset.suffix || '';
+        var start = performance.now();
+        var dur = 900;
+        requestAnimationFrame(function step(now) {
+          var p = Math.min((now - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(to * eased) + (p === 1 ? suffix : '');
+          if (p < 1) requestAnimationFrame(step);
+        });
+      });
+    }, { threshold: .6 });
+    nums.forEach(function (n) { counter.observe(n); });
+  }
+
+  /* Highlight the section the reader is currently in. */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.dock nav a'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('on'); });
+        var active = byId[e.target.id];
+        if (active) active.classList.add('on');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    Object.keys(byId).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  }
+</script>
+
+</body>
+</html>
