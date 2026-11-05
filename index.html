@@ -439,7 +439,7 @@ html.js .reveal.in { opacity: 1; transform: none; transition: opacity .7s var(--
   background: radial-gradient(120% 90% at 20% 10%, var(--accent-soft), transparent 62%), var(--surface-2);
   display: grid; place-items: center; overflow: hidden;
 }
-.portrait .frame img { width: 100%; height: 100%; object-fit: cover; }
+.portrait .frame img { width: min(200px, 72%); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid var(--border); box-shadow: var(--shadow-md); }
 .monogram { font-family: var(--display); font-weight: 700; font-size: 64px; letter-spacing: -.05em; color: var(--accent); opacity: .3; }
 .portrait .cap { font-family: var(--mono); font-size: 11px; color: var(--text-faint); margin: 13px 3px 3px; line-height: 1.6; }
 
@@ -803,7 +803,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 
       <aside class="portrait">
         <div class="frame">
-          <img src="assets/portrait.jpg" alt="David Lopez" width="160" height="200">
+          <img src="assets/portrait.jpg" alt="David Lopez" width="250" height="250">
         </div>
         <p class="cap">David Lopez<br>São Bernardo do Campo · Greater São Paulo, Brazil</p>
       </aside>
