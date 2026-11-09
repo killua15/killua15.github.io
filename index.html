@@ -522,6 +522,7 @@ html.js .reveal.in { opacity: 1; transform: none; transition: opacity .7s var(--
 
 .projects { display: grid; gap: 20px; }
 .project {
+  min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -580,6 +581,23 @@ html.js .reveal.in { opacity: 1; transform: none; transition: opacity .7s var(--
 .shots .device img { border-radius: 20px; }
 @media (hover: hover) {
   .shots .device:hover { transform: translateY(-6px); }
+}
+
+/* Desktop screenshots: fixed height, natural width, window-like frame. */
+.shots .window {
+  flex: none;
+  height: 230px;
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: var(--shadow-md);
+  transition: transform .5s var(--ease);
+}
+.shots .window img { height: 100%; width: auto; max-width: none; }
+@media (hover: hover) {
+  .shots .window:hover { transform: translateY(-6px); }
 }
 
 /* ---------- 06 code ---------- */
@@ -970,7 +988,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   <section id="projects" class="reveal">
     <p class="eyebrow">05 · Projects</p>
     <h2 class="sec-title">Products you can download and open right now.</h2>
-    <p class="sec-lede">The first is my own product; every other one I shipped for an employer or client, ordered by what you can still install today. Store links and versions checked on 8 September 2026; where an app has been withdrawn, it says so — a broken link is worse than an honest one.</p>
+    <p class="sec-lede">The first two are my own products; every other one I shipped for an employer or client, ordered by what you can still install today. Store links and versions checked on 8 September 2026; where an app has been withdrawn, it says so — a broken link is worse than an honest one.</p>
 
     <div class="projects">
 
@@ -996,6 +1014,31 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
           <div class="device"><img src="assets/mr_shot1.jpg" alt="Moradar report with the property on a risk map" width="800" height="1600" loading="lazy"></div>
           <div class="device"><img src="assets/mr_shot2.jpg" alt="Moradar risk section: geology, security and surroundings" width="800" height="1600" loading="lazy"></div>
           <div class="device"><img src="assets/mr_shot3.jpg" alt="Moradar true cost of buying breakdown" width="800" height="1600" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-body">
+          <div>
+            <div class="p-head">
+              <img class="p-icon" src="assets/hg_icon.png" alt="" width="44" height="44">
+              <h3>Hangar</h3>
+              <span class="badge brand"><span class="dot"></span>Personal · Open source</span>
+            </div>
+            <p class="role">Creator · desktop app · 2026</p>
+            <p>Mission control for coding agents: a local-first desktop app for macOS and Windows that runs real Claude Code and Codex terminals in parallel, each in its own git worktree and under the account it is meant to use. When one account runs out of quota, Hangar moves the conversation to another and carries on. It also tracks 5-hour and weekly usage per account, shows what every worktree changed, and sends pull request review comments straight back to the terminal that wrote the code.</p>
+            <p><b>My part:</b> designed and built it on my own — the Rust core that spawns and supervises the terminals, worktree and account isolation with credentials in the OS keychain, local SQLite state, and the React interface. Open source under AGPL-3.0.</p>
+            <div class="chips"><span class="chip">Tauri 2</span><span class="chip">Rust</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">xterm.js</span><span class="chip">SQLite</span><span class="chip">Tailwind CSS</span><span class="chip">Supabase</span></div>
+          </div>
+          <div class="links">
+            <a class="slink" href="https://github.com/killua15/FleetAgent"><svg class="icon"><use href="#i-github"></use></svg><span class="grow">FleetAgent</span><span class="tag">GitHub</span></a>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="window"><img src="assets/hg_shot1.jpg" alt="Hangar: four agent terminals in a grid, each on its own worktree and account" width="1200" height="750" loading="lazy"></div>
+          <div class="window"><img src="assets/hg_shot2.jpg" alt="Hangar Factory taking an order through spec, build, tests and review" width="1200" height="750" loading="lazy"></div>
+          <div class="window"><img src="assets/hg_shot3.jpg" alt="Hangar project brain: rules, checks and the amendments inbox" width="1200" height="585" loading="lazy"></div>
+          <div class="window"><img src="assets/hg_shot4.jpg" alt="Hangar usage: quota per account and spend per project" width="1200" height="675" loading="lazy"></div>
         </div>
       </article>
 
